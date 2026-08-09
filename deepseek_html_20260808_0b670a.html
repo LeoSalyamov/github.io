@@ -1,0 +1,1521 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>InstaTan — Профессиональный автозагар для спортсменов</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <style>
+        /* ===== RESET & БАЗА ===== */
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #f57c00;
+            --primary-dark: #e65100;
+            --primary-light: #ffb74d;
+            --dark: #1a1a2e;
+            --dark-card: #16213e;
+            --dark-bg: #0f0f1f;
+            --text: #f5f5f5;
+            --text-muted: #b0b0c8;
+            --white: #ffffff;
+            --shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+            --radius: 16px;
+            --transition: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: var(--dark-bg);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ===== КНОПКИ ===== */
+        .btn {
+            display: inline-block;
+            padding: 14px 36px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: #fff;
+            box-shadow: 0 8px 25px rgba(245, 124, 0, 0.35);
+        }
+        .btn-primary:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 12px 35px rgba(245, 124, 0, 0.5);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--primary);
+        }
+        .btn-outline:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(245, 124, 0, 0.3);
+        }
+
+        .btn-secondary {
+            background: var(--white);
+            color: var(--dark);
+        }
+        .btn-secondary:hover {
+            background: var(--primary-light);
+            transform: translateY(-3px);
+        }
+
+        /* ===== ШАПКА ===== */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 16px 0;
+            background: rgba(15, 15, 31, 0.85);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            transition: var(--transition);
+        }
+
+        header.scrolled {
+            background: rgba(15, 15, 31, 0.96);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .logo i {
+            color: var(--primary);
+            font-size: 2rem;
+        }
+        .logo span {
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 32px;
+            align-items: center;
+        }
+        .nav-links a {
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            transition: var(--transition);
+            position: relative;
+        }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: var(--transition);
+        }
+        .nav-links a:hover {
+            color: var(--white);
+        }
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            background: var(--primary);
+            color: #fff;
+            padding: 8px 24px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+        .nav-cta:hover {
+            background: var(--primary-dark);
+            transform: scale(1.05);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 4px;
+        }
+        .hamburger span {
+            display: block;
+            width: 28px;
+            height: 3px;
+            background: var(--white);
+            border-radius: 3px;
+            transition: var(--transition);
+        }
+
+        /* ===== ГЕРОЙ ===== */
+        .hero {
+            padding: 140px 0 80px;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: radial-gradient(ellipse at 20% 50%, rgba(245, 124, 0, 0.12), transparent 60%),
+                radial-gradient(ellipse at 80% 20%, rgba(245, 124, 0, 0.06), transparent 50%),
+                var(--dark-bg);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -30%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(245, 124, 0, 0.08), transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-content h1 {
+            font-size: 3.8rem;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+        .hero-content h1 span {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 500px;
+            margin-bottom: 32px;
+        }
+
+        .hero-badges {
+            display: flex;
+            gap: 24px;
+            flex-wrap: wrap;
+            margin-bottom: 36px;
+        }
+        .hero-badges .badge {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.04);
+            padding: 8px 18px 8px 12px;
+            border-radius: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+        .hero-badges .badge i {
+            color: var(--primary);
+            font-size: 1.1rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .hero-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .hero-image .product-card {
+            background: linear-gradient(145deg, #1e1e3a, #12122a);
+            border-radius: var(--radius);
+            padding: 30px 30px 20px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            box-shadow: var(--shadow);
+            text-align: center;
+            width: 100%;
+            max-width: 400px;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .hero-image .product-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(245, 124, 0, 0.2);
+        }
+
+        .hero-image .product-card .product-img {
+            font-size: 7rem;
+            color: var(--primary);
+            margin-bottom: 8px;
+            filter: drop-shadow(0 20px 40px rgba(245, 124, 0, 0.2));
+        }
+
+        .hero-image .product-card h3 {
+            font-size: 1.6rem;
+            font-weight: 800;
+        }
+        .hero-image .product-card .price {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin: 4px 0 12px;
+        }
+        .hero-image .product-card .rating {
+            color: #ffc107;
+            letter-spacing: 2px;
+        }
+        .hero-image .product-card .rating span {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .floating-badge {
+            position: absolute;
+            background: rgba(26, 26, 46, 0.9);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 10px 18px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+            animation: float 3s ease-in-out infinite;
+            font-size: 0.85rem;
+        }
+        .floating-badge i {
+            color: var(--primary);
+            font-size: 1.3rem;
+        }
+        .floating-badge b {
+            color: var(--white);
+        }
+
+        .floating-badge.fb1 {
+            top: 10%;
+            right: -10%;
+            animation-delay: 0s;
+        }
+        .floating-badge.fb2 {
+            bottom: 10%;
+            left: -10%;
+            animation-delay: 1.5s;
+        }
+
+        @keyframes float {
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-12px);
+            }
+        }
+
+        /* ===== СЛАЙДЕР ===== */
+        .slider-section {
+            padding: 80px 0 100px;
+            background: var(--dark);
+            position: relative;
+        }
+
+        .slider-section .section-title {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+        .slider-section .section-title h2 {
+            font-size: 2.8rem;
+            font-weight: 800;
+        }
+        .slider-section .section-title h2 span {
+            color: var(--primary);
+        }
+        .slider-section .section-title p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        .slider-wrapper {
+            position: relative;
+            overflow: hidden;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            background: var(--dark-card);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+        }
+
+        .slider-track {
+            display: flex;
+            transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .slide {
+            min-width: 100%;
+            padding: 48px 56px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .slide .slide-content h3 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 12px;
+        }
+        .slide .slide-content h3 i {
+            color: var(--primary);
+            margin-right: 10px;
+        }
+        .slide .slide-content p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            margin-bottom: 20px;
+        }
+        .slide .slide-content ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .slide .slide-content ul li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--text);
+        }
+        .slide .slide-content ul li i {
+            color: var(--primary);
+            font-size: 1.2rem;
+            width: 24px;
+        }
+
+        .slide .slide-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 6rem;
+            color: var(--primary);
+            background: rgba(245, 124, 0, 0.04);
+            border-radius: var(--radius);
+            padding: 40px;
+            border: 1px dashed rgba(245, 124, 0, 0.15);
+            min-height: 240px;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .slide .slide-image span {
+            font-size: 1rem;
+            color: var(--text-muted);
+        }
+        .slide .slide-image i {
+            font-size: 5rem;
+        }
+
+        .slider-controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 24px;
+            margin-top: 32px;
+        }
+
+        .slider-btn {
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            background: transparent;
+            color: var(--white);
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .slider-btn:hover {
+            background: var(--primary);
+            border-color: var(--primary);
+            transform: scale(1.05);
+        }
+
+        .slider-dots {
+            display: flex;
+            gap: 10px;
+        }
+        .slider-dots .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.15);
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        .slider-dots .dot.active {
+            background: var(--primary);
+            transform: scale(1.2);
+            box-shadow: 0 0 20px rgba(245, 124, 0, 0.3);
+        }
+        .slider-dots .dot:hover {
+            background: var(--primary-light);
+        }
+
+        /* ===== ТОВАРЫ ===== */
+        .products-section {
+            padding: 80px 0 100px;
+            background: var(--dark-bg);
+        }
+
+        .products-section .section-title {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+        .products-section .section-title h2 {
+            font-size: 2.8rem;
+            font-weight: 800;
+        }
+        .products-section .section-title h2 span {
+            color: var(--primary);
+        }
+        .products-section .section-title p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .product-item {
+            background: var(--dark-card);
+            border-radius: var(--radius);
+            padding: 32px 24px 28px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            transition: var(--transition);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+        }
+        .product-item:hover {
+            transform: translateY(-8px);
+            border-color: rgba(245, 124, 0, 0.2);
+            box-shadow: 0 16px 50px rgba(0, 0, 0, 0.4);
+        }
+
+        .product-item .p-icon {
+            font-size: 3.5rem;
+            color: var(--primary);
+            margin-bottom: 12px;
+        }
+        .product-item h4 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+        .product-item .p-desc {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 12px;
+            min-height: 44px;
+        }
+        .product-item .p-price {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 16px;
+        }
+        .product-item .btn {
+            padding: 10px 28px;
+            font-size: 0.85rem;
+        }
+
+        /* ===== ОТЗЫВЫ ===== */
+        .testimonials-section {
+            padding: 80px 0 100px;
+            background: var(--dark);
+        }
+
+        .testimonials-section .section-title {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+        .testimonials-section .section-title h2 {
+            font-size: 2.8rem;
+            font-weight: 800;
+        }
+        .testimonials-section .section-title h2 span {
+            color: var(--primary);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background: var(--dark-card);
+            border-radius: var(--radius);
+            padding: 32px 28px;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            transition: var(--transition);
+        }
+        .testimonial-card:hover {
+            border-color: rgba(245, 124, 0, 0.15);
+            transform: translateY(-4px);
+        }
+
+        .testimonial-card .stars {
+            color: #ffc107;
+            margin-bottom: 12px;
+            font-size: 1.1rem;
+        }
+        .testimonial-card blockquote {
+            font-size: 1rem;
+            color: var(--text-muted);
+            font-style: italic;
+            margin-bottom: 16px;
+            line-height: 1.7;
+        }
+        .testimonial-card .author {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+        .testimonial-card .author .avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: #fff;
+        }
+        .testimonial-card .author .name {
+            font-weight: 700;
+        }
+        .testimonial-card .author .role {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* ===== ФОРМА ===== */
+        .form-section {
+            padding: 80px 0 100px;
+            background: var(--dark-bg);
+            position: relative;
+        }
+
+        .form-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(ellipse at 30% 50%, rgba(245, 124, 0, 0.04), transparent 60%);
+            pointer-events: none;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+            position: relative;
+            z-index: 2;
+        }
+
+        .form-info h2 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 16px;
+        }
+        .form-info h2 span {
+            color: var(--primary);
+        }
+        .form-info p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-bottom: 24px;
+        }
+
+        .form-info .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+        .form-info .contact-details .cd-item {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            color: var(--text-muted);
+        }
+        .form-info .contact-details .cd-item i {
+            color: var(--primary);
+            font-size: 1.3rem;
+            width: 28px;
+            text-align: center;
+        }
+
+        .form-card {
+            background: var(--dark-card);
+            border-radius: var(--radius);
+            padding: 40px 44px;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            box-shadow: var(--shadow);
+        }
+
+        .form-card h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+        .form-card .form-sub {
+            color: var(--text-muted);
+            margin-bottom: 28px;
+            font-size: 0.95rem;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 6px;
+            font-size: 0.9rem;
+        }
+        .form-group label .required {
+            color: var(--primary);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px 18px;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: rgba(255, 255, 255, 0.04);
+            color: var(--white);
+            font-size: 1rem;
+            transition: var(--transition);
+            font-family: inherit;
+        }
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(245, 124, 0, 0.1);
+            background: rgba(255, 255, 255, 0.06);
+        }
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(255, 255, 255, 0.25);
+        }
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        .form-group select option {
+            background: var(--dark-card);
+            color: var(--text);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .form-card .btn {
+            width: 100%;
+            padding: 16px;
+            font-size: 1.05rem;
+            margin-top: 8px;
+        }
+
+        .form-success {
+            display: none;
+            text-align: center;
+            padding: 20px 0;
+        }
+        .form-success i {
+            font-size: 4rem;
+            color: #4caf50;
+            margin-bottom: 16px;
+        }
+        .form-success h4 {
+            font-size: 1.6rem;
+            color: #4caf50;
+        }
+        .form-success p {
+            color: var(--text-muted);
+        }
+
+        /* ===== ПОДВАЛ ===== */
+        footer {
+            background: #0a0a18;
+            padding: 40px 0 24px;
+            border-top: 1px solid rgba(255, 255, 255, 0.04);
+        }
+
+        .footer-grid {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 24px;
+        }
+
+        .footer-grid .logo {
+            font-size: 1.5rem;
+        }
+
+        .footer-grid .socials {
+            display: flex;
+            gap: 16px;
+        }
+        .footer-grid .socials a {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.04);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+        }
+        .footer-grid .socials a:hover {
+            background: var(--primary);
+            color: #fff;
+            transform: translateY(-4px);
+        }
+
+        .footer-grid .copy {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* ===== АДАПТИВ ===== */
+        @media (max-width: 1024px) {
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+            .slide {
+                padding: 32px 36px;
+                gap: 24px;
+            }
+            .slide .slide-content h3 {
+                font-size: 1.8rem;
+            }
+            .form-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .form-info h2 {
+                font-size: 2.2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(15, 15, 31, 0.98);
+                backdrop-filter: blur(16px);
+                padding: 24px;
+                gap: 20px;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+            }
+            .nav-links.open {
+                display: flex;
+            }
+            .hamburger {
+                display: flex;
+            }
+
+            .hero {
+                padding: 120px 0 60px;
+                min-height: auto;
+            }
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                text-align: center;
+            }
+            .hero-content p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .hero-badges {
+                justify-content: center;
+            }
+            .hero-buttons {
+                justify-content: center;
+            }
+            .hero-content h1 {
+                font-size: 2.6rem;
+            }
+
+            .hero-image .product-card {
+                max-width: 300px;
+                margin: 0 auto;
+            }
+            .hero-image .product-card .product-img {
+                font-size: 5rem;
+            }
+            .floating-badge {
+                display: none;
+            }
+
+            .slider-section .section-title h2,
+            .products-section .section-title h2,
+            .testimonials-section .section-title h2,
+            .form-info h2 {
+                font-size: 2rem;
+            }
+
+            .slide {
+                grid-template-columns: 1fr;
+                padding: 28px 20px;
+                text-align: center;
+            }
+            .slide .slide-content ul {
+                align-items: center;
+            }
+            .slide .slide-image {
+                min-height: 140px;
+                padding: 24px;
+            }
+            .slide .slide-image i {
+                font-size: 3.5rem;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-card {
+                padding: 28px 20px;
+            }
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+            .hero-badges .badge {
+                font-size: 0.75rem;
+                padding: 6px 14px 6px 10px;
+            }
+            .btn {
+                padding: 12px 24px;
+                font-size: 0.85rem;
+            }
+            .container {
+                padding: 0 16px;
+            }
+            .slider-btn {
+                width: 42px;
+                height: 42px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== HEADER ===== -->
+    <header id="header">
+        <div class="container nav">
+            <a href="#" class="logo">
+                <i class="fas fa-sun"></i> Insta<span>Tan</span>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#hero">Главная</a></li>
+                <li><a href="#slider">Презентация</a></li>
+                <li><a href="#products">Товары</a></li>
+                <li><a href="#testimonials">Отзывы</a></li>
+                <li><a href="#order" class="nav-cta">Заказать</a></li>
+            </ul>
+            <button class="hamburger" id="hamburger" aria-label="Меню">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- ===== ГЕРОЙ ===== -->
+    <section class="hero" id="hero">
+        <div class="container hero-grid">
+            <div class="hero-content">
+                <h1>Профессиональный автозагар <br /><span>для твоих побед</span></h1>
+                <p>
+                    <strong>InstaTan Pro</strong> – создан для спортсменов. Стойкий, ровный цвет, который не смывается потом.
+                    Подчеркни рельеф и выходи на сцену с уверенностью.
+                </p>
+                <div class="hero-badges">
+                    <span class="badge"><i class="fas fa-check-circle"></i> 72 ч стойкость</span>
+                    <span class="badge"><i class="fas fa-check-circle"></i> Без запаха</span>
+                    <span class="badge"><i class="fas fa-check-circle"></i> SPF 20</span>
+                    <span class="badge"><i class="fas fa-check-circle"></i> Для соревнований</span>
+                </div>
+                <div class="hero-buttons">
+                    <a href="#order" class="btn btn-primary"><i class="fas fa-shopping-cart"></i> Заказать сейчас</a>
+                    <a href="#slider" class="btn btn-outline"><i class="fas fa-play"></i> Смотреть презентацию</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="product-card">
+                    <div class="product-img">
+                        <i class="fas fa-spray-can-sparkles"></i>
+                    </div>
+                    <h3>InstaTan Pro 4 л</h3>
+                    <div class="price">5 990 ₽</div>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <span>(412 отзывов)</span>
+                    </div>
+                </div>
+                <div class="floating-badge fb1">
+                    <i class="fas fa-trophy"></i>
+                    <div><b>Для чемпионов</b><br />94% атлетов</div>
+                </div>
+                <div class="floating-badge fb2">
+                    <i class="fas fa-shipping-fast"></i>
+                    <div><b>Бесплатная</b><br />доставка от 3 000 ₽</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== СЛАЙДЕР ===== -->
+    <section class="slider-section" id="slider">
+        <div class="container">
+            <div class="section-title">
+                <h2>Почему <span>InstaTan</span>?</h2>
+                <p>Презентация продуктов – открой для себя идеальный автозагар</p>
+            </div>
+
+            <div class="slider-wrapper">
+                <div class="slider-track" id="sliderTrack">
+                    <!-- Слайд 1: InstaTan Pro -->
+                    <div class="slide">
+                        <div class="slide-content">
+                            <h3><i class="fas fa-spray-can"></i> InstaTan Pro</h3>
+                            <p>Профессиональный состав для соревнований. Доступен в объёмах 4 л и 1 л. Обеспечивает ровный, насыщенный цвет без разводов.</p>
+                            <ul>
+                                <li><i class="fas fa-check-circle"></i> Стойкость до 72 часов</li>
+                                <li><i class="fas fa-check-circle"></i> Не смывается потом и водой</li>
+                                <li><i class="fas fa-check-circle"></i> Для всех типов кожи</li>
+                                <li><i class="fas fa-check-circle"></i> Объёмы: 4 л / 1 л</li>
+                            </ul>
+                        </div>
+                        <div class="slide-image">
+                            <i class="fas fa-spray-can-sparkles"></i>
+                            <span>Профессиональный состав</span>
+                        </div>
+                    </div>
+                    <!-- Слайд 2: Скраб -->
+                    <div class="slide">
+                        <div class="slide-content">
+                            <h3><i class="fas fa-scrub"></i> InstaTan Scrab 500 мл</h3>
+                            <p>Скраб для подготовки кожи перед нанесением автозагара. Удаляет ороговевшие частицы, выравнивает рельеф и продлевает стойкость.</p>
+                            <ul>
+                                <li><i class="fas fa-check-circle"></i> Мягкие абразивные частицы</li>
+                                <li><i class="fas fa-check-circle"></i> Экстракт алоэ и витамин Е</li>
+                                <li><i class="fas fa-check-circle"></i> Не пересушивает кожу</li>
+                                <li><i class="fas fa-check-circle"></i> Идеален перед соревнованиями</li>
+                            </ul>
+                        </div>
+                        <div class="slide-image">
+                            <i class="fas fa-hand-sparkles"></i>
+                            <span>Подготовка к загару</span>
+                        </div>
+                    </div>
+                    <!-- Слайд 3: Крем с магнием -->
+                    <div class="slide">
+                        <div class="slide-content">
+                            <h3><i class="fas fa-hand-holding-heart"></i> InstaTan Cream 300 мл</h3>
+                            <p>Крем для восстановления с магнием. Успокаивает кожу после загара, снимает раздражение, питает и увлажняет.</p>
+                            <ul>
+                                <li><i class="fas fa-check-circle"></i> Магний для расслабления мышц</li>
+                                <li><i class="fas fa-check-circle"></i> Увлажнение до 24 ч</li>
+                                <li><i class="fas fa-check-circle"></i> Без силиконов и парабенов</li>
+                                <li><i class="fas fa-check-circle"></i> Подходит для чувствительной кожи</li>
+                            </ul>
+                        </div>
+                        <div class="slide-image">
+                            <i class="fas fa-hand-holding-heart"></i>
+                            <span>Восстановление + магний</span>
+                        </div>
+                    </div>
+                    <!-- Слайд 4: Гель для душа -->
+                    <div class="slide">
+                        <div class="slide-content">
+                            <h3><i class="fas fa-shower"></i> InstaTan Shower 1000 мл</h3>
+                            <p>Бережный гель для душа, который продлевает стойкость загара. Очищает кожу, не нарушая цвет.</p>
+                            <ul>
+                                <li><i class="fas fa-check-circle"></i> pH-сбалансированный</li>
+                                <li><i class="fas fa-check-circle"></i> Без сульфатов</li>
+                                <li><i class="fas fa-check-circle"></i> Увлажняющие компоненты</li>
+                                <li><i class="fas fa-check-circle"></i> Экономичный объём 1 л</li>
+                            </ul>
+                        </div>
+                        <div class="slide-image">
+                            <i class="fas fa-shower"></i>
+                            <span>Уход и очищение</span>
+                        </div>
+                    </div>
+                    <!-- Слайд 5: Крем ReVival -->
+                    <div class="slide">
+                        <div class="slide-content">
+                            <h3><i class="fas fa-seedling"></i> InstaTan ReVival</h3>
+                            <p>Интенсивный восстанавливающий крем для кожи после загара. Насыщает антиоксидантами, ускоряет регенерацию и дарит ощущение комфорта.</p>
+                            <ul>
+                                <li><i class="fas fa-check-circle"></i> Комплекс витаминов A, C, E</li>
+                                <li><i class="fas fa-check-circle"></i> Глубокое питание</li>
+                                <li><i class="fas fa-check-circle"></i> Уменьшает шелушение</li>
+                                <li><i class="fas fa-check-circle"></i> Для ежедневного использования</li>
+                            </ul>
+                        </div>
+                        <div class="slide-image">
+                            <i class="fas fa-seedling"></i>
+                            <span>Полное восстановление</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="slider-controls">
+                <button class="slider-btn" id="prevSlide" aria-label="Предыдущий слайд">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <div class="slider-dots" id="sliderDots"></div>
+                <button class="slider-btn" id="nextSlide" aria-label="Следующий слайд">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ТОВАРЫ ===== -->
+    <section class="products-section" id="products">
+        <div class="container">
+            <div class="section-title">
+                <h2>Наши <span>продукты</span></h2>
+                <p>Всё для идеального загара и ухода за кожей</p>
+            </div>
+            <div class="products-grid">
+                <div class="product-item">
+                    <div class="p-icon"><i class="fas fa-spray-can-sparkles"></i></div>
+                    <h4>InstaTan Pro 4 л</h4>
+                    <p class="p-desc">Профессиональный автозагар для соревнований</p>
+                    <div class="p-price">5 990 ₽</div>
+                    <a href="#order" class="btn btn-primary">Купить</a>
+                </div>
+                <div class="product-item">
+                    <div class="p-icon"><i class="fas fa-spray-can"></i></div>
+                    <h4>InstaTan Pro 1 л</h4>
+                    <p class="p-desc">Профессиональный автозагар для соревнований</p>
+                    <div class="p-price">1 990 ₽</div>
+                    <a href="#order" class="btn btn-primary">Купить</a>
+                </div>
+                <div class="product-item">
+                    <div class="p-icon"><i class="fas fa-scrub"></i></div>
+                    <h4>InstaTan Scrab 500 мл</h4>
+                    <p class="p-desc">Скраб для подготовки к соревнованиям</p>
+                    <div class="p-price">1 200 ₽</div>
+                    <a href="#order" class="btn btn-primary">Купить</a>
+                </div>
+                <div class="product-item">
+                    <div class="p-icon"><i class="fas fa-hand-holding-heart"></i></div>
+                    <h4>InstaTan Cream 300 мл</h4>
+                    <p class="p-desc">Крем для восстановления с магнием</p>
+                    <div class="p-price">1 500 ₽</div>
+                    <a href="#order" class="btn btn-primary">Купить</a>
+                </div>
+                <div class="product-item">
+                    <div class="p-icon"><i class="fas fa-shower"></i></div>
+                    <h4>InstaTan Shower 1000 мл</h4>
+                    <p class="p-desc">Гель для душа, продлевает стойкость</p>
+                    <div class="p-price">800 ₽</div>
+                    <a href="#order" class="btn btn-primary">Купить</a>
+                </div>
+                <div class="product-item">
+                    <div class="p-icon"><i class="fas fa-seedling"></i></div>
+                    <h4>InstaTan ReVival</h4>
+                    <p class="p-desc">Крем для интенсивного восстановления</p>
+                    <div class="p-price">1 700 ₽</div>
+                    <a href="#order" class="btn btn-primary">Купить</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ОТЗЫВЫ ===== -->
+    <section class="testimonials-section" id="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>Что говорят <span>атлеты</span></h2>
+                <p>Реальные отзывы наших клиентов</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <blockquote>«InstaTan Pro 4 л – идеальный выбор для соревнований. Цвет насыщенный, держится три дня, даже после тренировок. Очень доволен!»</blockquote>
+                    <div class="author">
+                        <div class="avatar">А</div>
+                        <div>
+                            <div class="name">Алексей</div>
+                            <div class="role">Триатлет, 3 года</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <blockquote>«Скраб и крем с магнием – мастхэв! После скраба загар ложится идеально, а крем успокаивает кожу. Результат – супер.»</blockquote>
+                    <div class="author">
+                        <div class="avatar">Е</div>
+                        <div>
+                            <div class="name">Екатерина</div>
+                            <div class="role">Фитнес-тренер</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <blockquote>«Брал комплект: Pro 1 л + Shower + ReVival. Загар ровный, стойкий, гель не смывает цвет, а крем восстанавливает после соревнований. Рекомендую!»</blockquote>
+                    <div class="author">
+                        <div class="avatar">Д</div>
+                        <div>
+                            <div class="name">Дмитрий</div>
+                            <div class="role">Бодибилдер</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ФОРМА ЗАКАЗА ===== -->
+    <section class="form-section" id="order">
+        <div class="container">
+            <div class="form-grid">
+                <div class="form-info">
+                    <h2>Оставь <span>заявку</span></h2>
+                    <p>
+                        Мы свяжемся с тобой в течение 15 минут, поможем подобрать продукт и
+                        оформим заказ с доставкой по всей России.
+                    </p>
+                    <div class="contact-details">
+                        <div class="cd-item">
+                            <i class="fas fa-phone-alt"></i>
+                            <span>+7 (800) 555-35-35</span>
+                        </div>
+                        <div class="cd-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>info@instatan.ru</span>
+                        </div>
+                        <div class="cd-item">
+                            <i class="fas fa-clock"></i>
+                            <span>Пн–Пт: 9:00 – 21:00, Сб–Вс: 10:00 – 18:00</span>
+                        </div>
+                        <div class="cd-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Москва, ул. Спортивная, 12</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-card" id="formCard">
+                    <h3>Заказать сейчас</h3>
+                    <p class="form-sub">Заполни форму, и мы всё сделаем за тебя</p>
+
+                    <form id="orderForm" novalidate>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Имя <span class="required">*</span></label>
+                                <input type="text" id="name" placeholder="Введите имя" required />
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Телефон <span class="required">*</span></label>
+                                <input type="tel" id="phone" placeholder="+7 (___) ___-__-__" required />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" placeholder="example@mail.ru" />
+                        </div>
+                        <div class="form-group">
+                            <label for="product">Выберите товар</label>
+                            <select id="product">
+                                <option value="InstaTan Pro 4 л — 5 990 ₽">InstaTan Pro 4 л — 5 990 ₽</option>
+                                <option value="InstaTan Pro 1 л — 1 990 ₽">InstaTan Pro 1 л — 1 990 ₽</option>
+                                <option value="InstaTan Scrab 500 мл — 1 200 ₽">InstaTan Scrab 500 мл — 1 200 ₽</option>
+                                <option value="InstaTan Cream 300 мл — 1 500 ₽">InstaTan Cream 300 мл — 1 500 ₽</option>
+                                <option value="InstaTan Shower 1000 мл — 800 ₽">InstaTan Shower 1000 мл — 800 ₽</option>
+                                <option value="InstaTan ReVival — 1 700 ₽">InstaTan ReVival — 1 700 ₽</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Комментарий / пожелания</label>
+                            <textarea id="message" placeholder="Напишите, что вас интересует..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i> Отправить заявку
+                        </button>
+                    </form>
+
+                    <div class="form-success" id="formSuccess">
+                        <i class="fas fa-check-circle"></i>
+                        <h4>Заявка отправлена!</h4>
+                        <p>Спасибо! Мы свяжемся с вами в ближайшее время.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ПОДВАЛ ===== -->
+    <footer>
+        <div class="container footer-grid">
+            <div class="logo">
+                <i class="fas fa-sun"></i> Insta<span>Tan</span>
+            </div>
+            <div class="socials">
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="Telegram"><i class="fab fa-telegram-plane"></i></a>
+                <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                <a href="#" aria-label="VK"><i class="fab fa-vk"></i></a>
+            </div>
+            <div class="copy">
+                &copy; 2026 InstaTan. Все права защищены.
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== JAVASCRIPT ===== -->
+    <script>
+        (function() {
+            'use strict';
+
+            // ----- НАВИГАЦИЯ (бургер + скролл) -----
+            const hamburger = document.getElementById('hamburger');
+            const navLinks = document.getElementById('navLinks');
+            const header = document.getElementById('header');
+
+            hamburger.addEventListener('click', () => {
+                navLinks.classList.toggle('open');
+            });
+
+            document.addEventListener('click', (e) => {
+                if (!header.contains(e.target) && navLinks.classList.contains('open')) {
+                    navLinks.classList.remove('open');
+                }
+            });
+
+            window.addEventListener('scroll', () => {
+                header.classList.toggle('scrolled', window.scrollY > 60);
+            });
+
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.classList.remove('open');
+                });
+            });
+
+            // ----- СЛАЙДЕР -----
+            const track = document.getElementById('sliderTrack');
+            const slides = track.querySelectorAll('.slide');
+            const dotsContainer = document.getElementById('sliderDots');
+            const prevBtn = document.getElementById('prevSlide');
+            const nextBtn = document.getElementById('nextSlide');
+            let currentIndex = 0;
+            const total = slides.length;
+            let autoSlideInterval;
+
+            slides.forEach((_, idx) => {
+                const dot = document.createElement('button');
+                dot.className = 'dot' + (idx === 0 ? ' active' : '');
+                dot.setAttribute('data-index', idx);
+                dot.addEventListener('click', () => goTo(idx));
+                dotsContainer.appendChild(dot);
+            });
+
+            const dots = dotsContainer.querySelectorAll('.dot');
+
+            function goTo(index) {
+                if (index < 0) index = total - 1;
+                if (index >= total) index = 0;
+                currentIndex = index;
+                track.style.transform = `translateX(-${currentIndex * 100}%)`;
+                dots.forEach((d, i) => {
+                    d.classList.toggle('active', i === currentIndex);
+                });
+                resetAutoSlide();
+            }
+
+            function nextSlide() {
+                goTo(currentIndex + 1);
+            }
+
+            function prevSlide() {
+                goTo(currentIndex - 1);
+            }
+
+            function resetAutoSlide() {
+                clearInterval(autoSlideInterval);
+                autoSlideInterval = setInterval(nextSlide, 5500);
+            }
+
+            prevBtn.addEventListener('click', prevSlide);
+            nextBtn.addEventListener('click', nextSlide);
+
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowLeft') prevSlide();
+                if (e.key === 'ArrowRight') nextSlide();
+            });
+
+            resetAutoSlide();
+
+            const sliderWrapper = document.querySelector('.slider-wrapper');
+            sliderWrapper.addEventListener('mouseenter', () => clearInterval(autoSlideInterval));
+            sliderWrapper.addEventListener('mouseleave', resetAutoSlide);
+
+            // ----- ФОРМА -----
+            const form = document.getElementById('orderForm');
+            const successBlock = document.getElementById('formSuccess');
+
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+
+                const name = document.getElementById('name').value.trim();
+                const phone = document.getElementById('phone').value.trim();
+
+                if (!name || !phone) {
+                    alert('Пожалуйста, заполните имя и телефон.');
+                    return;
+                }
+
+                form.style.display = 'none';
+                successBlock.style.display = 'block';
+
+                setTimeout(() => {
+                    form.style.display = 'block';
+                    successBlock.style.display = 'none';
+                    form.reset();
+                }, 5000);
+            });
+
+        })();
+    </script>
+
+</body>
+</html>
