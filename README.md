@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>InstaTan — Профессиональный автозагар для спортсменов</title>
+    <title>InstaTan — Pro Competition Tan</title>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
     <style>
@@ -18,18 +18,18 @@
         }
 
         :root {
-            --primary: #f57c00;
-            --primary-dark: #e65100;
-            --primary-light: #ffb74d;
-            --dark: #1a1a2e;
-            --dark-card: #16213e;
-            --dark-bg: #0f0f1f;
-            --text: #f5f5f5;
-            --text-muted: #b0b0c8;
+            --primary: #d95b2b;
+            --primary-dark: #b3471f;
+            --primary-light: #f07a4a;
+            --dark: #0f0f1a;
+            --dark-card: #19192b;
+            --dark-bg: #0a0a14;
+            --text: #f0f0f4;
+            --text-muted: #a8a8c0;
             --white: #ffffff;
-            --shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
-            --radius: 16px;
-            --transition: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            --shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+            --radius: 12px;
+            --transition: 0.35s ease;
         }
 
         html {
@@ -37,7 +37,7 @@
         }
 
         body {
-            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            font-family: 'Segoe UI', Roboto, system-ui, -apple-system, sans-serif;
             background: var(--dark-bg);
             color: var(--text);
             line-height: 1.6;
@@ -49,11 +49,6 @@
             color: inherit;
         }
 
-        img {
-            max-width: 100%;
-            display: block;
-        }
-
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -63,12 +58,12 @@
         /* ===== КНОПКИ ===== */
         .btn {
             display: inline-block;
-            padding: 14px 36px;
+            padding: 14px 38px;
             border-radius: 50px;
             font-weight: 700;
             font-size: 1rem;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
             border: none;
             cursor: pointer;
             transition: var(--transition);
@@ -79,11 +74,11 @@
         .btn-primary {
             background: linear-gradient(135deg, var(--primary), var(--primary-dark));
             color: #fff;
-            box-shadow: 0 8px 25px rgba(245, 124, 0, 0.35);
+            box-shadow: 0 8px 28px rgba(217, 91, 43, 0.35);
         }
         .btn-primary:hover {
             transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 12px 35px rgba(245, 124, 0, 0.5);
+            box-shadow: 0 12px 40px rgba(217, 91, 43, 0.5);
         }
 
         .btn-outline {
@@ -94,7 +89,7 @@
         .btn-outline:hover {
             background: var(--primary);
             transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(245, 124, 0, 0.3);
+            box-shadow: 0 8px 25px rgba(217, 91, 43, 0.3);
         }
 
         .btn-secondary {
@@ -113,16 +108,16 @@
             left: 0;
             width: 100%;
             z-index: 1000;
-            padding: 16px 0;
-            background: rgba(15, 15, 31, 0.85);
-            backdrop-filter: blur(16px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 14px 0;
+            background: rgba(10, 10, 20, 0.92);
+            backdrop-filter: blur(14px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
             transition: var(--transition);
         }
 
         header.scrolled {
-            background: rgba(15, 15, 31, 0.96);
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+            background: rgba(10, 10, 20, 0.98);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
         }
 
         .nav {
@@ -132,12 +127,12 @@
         }
 
         .logo {
-            font-size: 1.8rem;
+            font-size: 2rem;
             font-weight: 800;
             letter-spacing: -0.5px;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
         }
         .logo i {
             color: var(--primary);
@@ -180,7 +175,7 @@
         .nav-cta {
             background: var(--primary);
             color: #fff;
-            padding: 8px 24px;
+            padding: 8px 26px;
             border-radius: 50px;
             font-weight: 700;
             font-size: 0.9rem;
@@ -215,8 +210,8 @@
             min-height: 100vh;
             display: flex;
             align-items: center;
-            background: radial-gradient(ellipse at 20% 50%, rgba(245, 124, 0, 0.12), transparent 60%),
-                radial-gradient(ellipse at 80% 20%, rgba(245, 124, 0, 0.06), transparent 50%),
+            background: radial-gradient(ellipse at 20% 50%, rgba(217, 91, 43, 0.10), transparent 60%),
+                radial-gradient(ellipse at 80% 20%, rgba(217, 91, 43, 0.05), transparent 50%),
                 var(--dark-bg);
             position: relative;
             overflow: hidden;
@@ -229,7 +224,7 @@
             right: -10%;
             width: 600px;
             height: 600px;
-            background: radial-gradient(circle, rgba(245, 124, 0, 0.08), transparent 70%);
+            background: radial-gradient(circle, rgba(217, 91, 43, 0.06), transparent 70%);
             border-radius: 50%;
             pointer-events: none;
         }
@@ -244,37 +239,48 @@
         }
 
         .hero-content h1 {
-            font-size: 3.8rem;
+            font-size: 4rem;
             font-weight: 900;
-            line-height: 1.1;
-            margin-bottom: 20px;
+            line-height: 1.05;
+            margin-bottom: 18px;
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
         }
         .hero-content h1 span {
+            color: var(--primary);
             background: linear-gradient(135deg, var(--primary), var(--primary-light));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
 
+        .hero-content .tagline {
+            font-size: 1.3rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+            letter-spacing: 0.3px;
+        }
+
         .hero-content p {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             color: var(--text-muted);
             max-width: 500px;
-            margin-bottom: 32px;
+            margin-bottom: 28px;
         }
 
         .hero-badges {
             display: flex;
-            gap: 24px;
+            gap: 16px;
             flex-wrap: wrap;
-            margin-bottom: 36px;
+            margin-bottom: 32px;
         }
         .hero-badges .badge {
             display: flex;
             align-items: center;
             gap: 10px;
             background: rgba(255, 255, 255, 0.04);
-            padding: 8px 18px 8px 12px;
+            padding: 8px 18px 8px 14px;
             border-radius: 50px;
             border: 1px solid rgba(255, 255, 255, 0.06);
             font-size: 0.9rem;
@@ -299,9 +305,9 @@
         }
 
         .hero-image .product-card {
-            background: linear-gradient(145deg, #1e1e3a, #12122a);
+            background: linear-gradient(145deg, #1c1c32, #131324);
             border-radius: var(--radius);
-            padding: 30px 30px 20px;
+            padding: 32px 32px 24px;
             border: 1px solid rgba(255, 255, 255, 0.06);
             box-shadow: var(--shadow);
             text-align: center;
@@ -312,26 +318,27 @@
         }
 
         .hero-image .product-card:hover {
-            transform: translateY(-8px);
-            border-color: rgba(245, 124, 0, 0.2);
+            transform: translateY(-6px);
+            border-color: rgba(217, 91, 43, 0.3);
         }
 
         .hero-image .product-card .product-img {
-            font-size: 7rem;
+            font-size: 6rem;
             color: var(--primary);
-            margin-bottom: 8px;
-            filter: drop-shadow(0 20px 40px rgba(245, 124, 0, 0.2));
+            margin-bottom: 4px;
+            filter: drop-shadow(0 20px 30px rgba(217, 91, 43, 0.2));
         }
 
         .hero-image .product-card h3 {
-            font-size: 1.6rem;
+            font-size: 1.8rem;
             font-weight: 800;
+            letter-spacing: -0.5px;
         }
         .hero-image .product-card .price {
-            font-size: 1.8rem;
+            font-size: 2rem;
             font-weight: 700;
             color: var(--primary);
-            margin: 4px 0 12px;
+            margin: 2px 0 10px;
         }
         .hero-image .product-card .rating {
             color: #ffc107;
@@ -339,40 +346,40 @@
         }
         .hero-image .product-card .rating span {
             color: var(--text-muted);
-            font-size: 0.9rem;
+            font-size: 0.85rem;
         }
 
         .floating-badge {
             position: absolute;
-            background: rgba(26, 26, 46, 0.9);
+            background: rgba(20, 20, 38, 0.92);
             backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.06);
             border-radius: 12px;
-            padding: 10px 18px;
+            padding: 10px 20px;
             display: flex;
             align-items: center;
             gap: 12px;
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
-            animation: float 3s ease-in-out infinite;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+            animation: float 3.2s ease-in-out infinite;
             font-size: 0.85rem;
         }
         .floating-badge i {
             color: var(--primary);
-            font-size: 1.3rem;
+            font-size: 1.4rem;
         }
         .floating-badge b {
             color: var(--white);
         }
 
         .floating-badge.fb1 {
-            top: 10%;
-            right: -10%;
+            top: 8%;
+            right: -8%;
             animation-delay: 0s;
         }
         .floating-badge.fb2 {
-            bottom: 10%;
-            left: -10%;
-            animation-delay: 1.5s;
+            bottom: 8%;
+            left: -8%;
+            animation-delay: 1.8s;
         }
 
         @keyframes float {
@@ -381,7 +388,7 @@
                 transform: translateY(0px);
             }
             50% {
-                transform: translateY(-12px);
+                transform: translateY(-14px);
             }
         }
 
@@ -399,6 +406,8 @@
         .slider-section .section-title h2 {
             font-size: 2.8rem;
             font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: -0.5px;
         }
         .slider-section .section-title h2 span {
             color: var(--primary);
@@ -419,7 +428,7 @@
 
         .slider-track {
             display: flex;
-            transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
         }
 
         .slide {
@@ -434,11 +443,18 @@
         .slide .slide-content h3 {
             font-size: 2.2rem;
             font-weight: 800;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
+            letter-spacing: -0.3px;
         }
         .slide .slide-content h3 i {
             color: var(--primary);
-            margin-right: 10px;
+            margin-right: 12px;
+        }
+        .slide .slide-content .sub {
+            color: var(--text-muted);
+            font-size: 1rem;
+            margin-bottom: 16px;
+            font-weight: 500;
         }
         .slide .slide-content p {
             color: var(--text-muted);
@@ -467,22 +483,23 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 6rem;
+            font-size: 5rem;
             color: var(--primary);
-            background: rgba(245, 124, 0, 0.04);
+            background: rgba(217, 91, 43, 0.04);
             border-radius: var(--radius);
             padding: 40px;
-            border: 1px dashed rgba(245, 124, 0, 0.15);
-            min-height: 240px;
+            border: 1px dashed rgba(217, 91, 43, 0.12);
+            min-height: 220px;
             flex-direction: column;
-            gap: 12px;
+            gap: 10px;
         }
         .slide .slide-image span {
             font-size: 1rem;
             color: var(--text-muted);
+            font-weight: 500;
         }
         .slide .slide-image i {
-            font-size: 5rem;
+            font-size: 4.5rem;
         }
 
         .slider-controls {
@@ -497,7 +514,7 @@
             width: 52px;
             height: 52px;
             border-radius: 50%;
-            border: 2px solid rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.08);
             background: transparent;
             color: var(--white);
             font-size: 1.2rem;
@@ -521,7 +538,7 @@
             width: 12px;
             height: 12px;
             border-radius: 50%;
-            background: rgba(255, 255, 255, 0.15);
+            background: rgba(255, 255, 255, 0.12);
             border: none;
             cursor: pointer;
             transition: var(--transition);
@@ -529,7 +546,7 @@
         .slider-dots .dot.active {
             background: var(--primary);
             transform: scale(1.2);
-            box-shadow: 0 0 20px rgba(245, 124, 0, 0.3);
+            box-shadow: 0 0 20px rgba(217, 91, 43, 0.3);
         }
         .slider-dots .dot:hover {
             background: var(--primary-light);
@@ -548,6 +565,8 @@
         .products-section .section-title h2 {
             font-size: 2.8rem;
             font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: -0.5px;
         }
         .products-section .section-title h2 span {
             color: var(--primary);
@@ -574,25 +593,26 @@
         }
         .product-item:hover {
             transform: translateY(-8px);
-            border-color: rgba(245, 124, 0, 0.2);
+            border-color: rgba(217, 91, 43, 0.25);
             box-shadow: 0 16px 50px rgba(0, 0, 0, 0.4);
         }
 
         .product-item .p-icon {
-            font-size: 3.5rem;
+            font-size: 3.2rem;
             color: var(--primary);
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
         .product-item h4 {
             font-size: 1.3rem;
             font-weight: 700;
             margin-bottom: 4px;
+            letter-spacing: -0.3px;
         }
         .product-item .p-desc {
             color: var(--text-muted);
             font-size: 0.9rem;
-            margin-bottom: 12px;
-            min-height: 44px;
+            margin-bottom: 10px;
+            min-height: 40px;
         }
         .product-item .p-price {
             font-size: 1.6rem;
@@ -618,6 +638,8 @@
         .testimonials-section .section-title h2 {
             font-size: 2.8rem;
             font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: -0.5px;
         }
         .testimonials-section .section-title h2 span {
             color: var(--primary);
@@ -637,7 +659,7 @@
             transition: var(--transition);
         }
         .testimonial-card:hover {
-            border-color: rgba(245, 124, 0, 0.15);
+            border-color: rgba(217, 91, 43, 0.15);
             transform: translateY(-4px);
         }
 
@@ -692,7 +714,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: radial-gradient(ellipse at 30% 50%, rgba(245, 124, 0, 0.04), transparent 60%);
+            background: radial-gradient(ellipse at 30% 50%, rgba(217, 91, 43, 0.04), transparent 60%);
             pointer-events: none;
         }
 
@@ -708,7 +730,9 @@
         .form-info h2 {
             font-size: 2.8rem;
             font-weight: 800;
-            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: -0.5px;
+            margin-bottom: 14px;
         }
         .form-info h2 span {
             color: var(--primary);
@@ -748,7 +772,8 @@
         .form-card h3 {
             font-size: 1.8rem;
             font-weight: 700;
-            margin-bottom: 6px;
+            margin-bottom: 4px;
+            letter-spacing: -0.3px;
         }
         .form-card .form-sub {
             color: var(--text-muted);
@@ -775,8 +800,8 @@
             width: 100%;
             padding: 14px 18px;
             border-radius: 10px;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            background: rgba(255, 255, 255, 0.03);
             color: var(--white);
             font-size: 1rem;
             transition: var(--transition);
@@ -787,12 +812,12 @@
         .form-group textarea:focus {
             outline: none;
             border-color: var(--primary);
-            box-shadow: 0 0 0 4px rgba(245, 124, 0, 0.1);
+            box-shadow: 0 0 0 4px rgba(217, 91, 43, 0.08);
             background: rgba(255, 255, 255, 0.06);
         }
         .form-group input::placeholder,
         .form-group textarea::placeholder {
-            color: rgba(255, 255, 255, 0.25);
+            color: rgba(255, 255, 255, 0.2);
         }
         .form-group textarea {
             resize: vertical;
@@ -836,9 +861,9 @@
 
         /* ===== ПОДВАЛ ===== */
         footer {
-            background: #0a0a18;
+            background: #080812;
             padding: 40px 0 24px;
-            border-top: 1px solid rgba(255, 255, 255, 0.04);
+            border-top: 1px solid rgba(255, 255, 255, 0.03);
         }
 
         .footer-grid {
@@ -910,7 +935,7 @@
                 top: 100%;
                 left: 0;
                 right: 0;
-                background: rgba(15, 15, 31, 0.98);
+                background: rgba(10, 10, 20, 0.98);
                 backdrop-filter: blur(16px);
                 padding: 24px;
                 gap: 20px;
@@ -973,8 +998,8 @@
                 align-items: center;
             }
             .slide .slide-image {
-                min-height: 140px;
-                padding: 24px;
+                min-height: 120px;
+                padding: 20px;
             }
             .slide .slide-image i {
                 font-size: 3.5rem;
@@ -1037,8 +1062,8 @@
             </a>
             <ul class="nav-links" id="navLinks">
                 <li><a href="#hero">Главная</a></li>
-                <li><a href="#slider">Презентация</a></li>
-                <li><a href="#products">Товары</a></li>
+                <li><a href="#slider">Продукты</a></li>
+                <li><a href="#products">Каталог</a></li>
                 <li><a href="#testimonials">Отзывы</a></li>
                 <li><a href="#order" class="nav-cta">Заказать</a></li>
             </ul>
@@ -1052,20 +1077,21 @@
     <section class="hero" id="hero">
         <div class="container hero-grid">
             <div class="hero-content">
-                <h1>Профессиональный автозагар <br /><span>для твоих побед</span></h1>
+                <div class="tagline">#1 Competition Tan</div>
+                <h1>InstaTan <span>Pro</span></h1>
                 <p>
-                    <strong>InstaTan Pro</strong> – создан для спортсменов. Стойкий, ровный цвет, который не смывается потом.
-                    Подчеркни рельеф и выходи на сцену с уверенностью.
+                    Профессиональный автозагар для соревнований. Однофазное нанесение в день выхода.
+                    Стойкий, естественный оттенок, устойчивый к поту и воде.
                 </p>
                 <div class="hero-badges">
-                    <span class="badge"><i class="fas fa-check-circle"></i> 72 ч стойкость</span>
-                    <span class="badge"><i class="fas fa-check-circle"></i> Без запаха</span>
-                    <span class="badge"><i class="fas fa-check-circle"></i> SPF 20</span>
-                    <span class="badge"><i class="fas fa-check-circle"></i> Для соревнований</span>
+                    <span class="badge"><i class="fas fa-check-circle"></i> Однофазный</span>
+                    <span class="badge"><i class="fas fa-check-circle"></i> Стойкость 72 ч</span>
+                    <span class="badge"><i class="fas fa-check-circle"></i> Натуральный тон</span>
+                    <span class="badge"><i class="fas fa-check-circle"></i> Легкий приятный аромат</span>
                 </div>
                 <div class="hero-buttons">
-                    <a href="#order" class="btn btn-primary"><i class="fas fa-shopping-cart"></i> Заказать сейчас</a>
-                    <a href="#slider" class="btn btn-outline"><i class="fas fa-play"></i> Смотреть презентацию</a>
+                    <a href="#order" class="btn btn-primary"><i class="fas fa-shopping-cart"></i> Заказать</a>
+                    <a href="#slider" class="btn btn-outline"><i class="fas fa-play"></i> Презентация</a>
                 </div>
             </div>
             <div class="hero-image">
@@ -1073,24 +1099,24 @@
                     <div class="product-img">
                         <i class="fas fa-spray-can-sparkles"></i>
                     </div>
-                    <h3>InstaTan Pro 4 л</h3>
-                    <div class="price">5 990 ₽</div>
+                    <h3>InstaTan Pro 5 л</h3>
+                    <div class="price">6 990 ₽</div>
                     <div class="rating">
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
-                        <span>(412 отзывов)</span>
+                        <span>(312 отзывов)</span>
                     </div>
                 </div>
                 <div class="floating-badge fb1">
                     <i class="fas fa-trophy"></i>
-                    <div><b>Для чемпионов</b><br />94% атлетов</div>
+                    <div><b>Pro уровень</b><br />для соревнований</div>
                 </div>
                 <div class="floating-badge fb2">
-                    <i class="fas fa-shipping-fast"></i>
-                    <div><b>Бесплатная</b><br />доставка от 3 000 ₽</div>
+                    <i class="fas fa-shield-alt"></i>
+                    <div><b>Не смывается</b><br />потом и водой</div>
                 </div>
             </div>
         </div>
@@ -1100,95 +1126,118 @@
     <section class="slider-section" id="slider">
         <div class="container">
             <div class="section-title">
-                <h2>Почему <span>InstaTan</span>?</h2>
-                <p>Презентация продуктов – открой для себя идеальный автозагар</p>
+                <h2>Полная <span>система</span></h2>
+                <p>От подготовки до восстановления – всё для идеального выхода</p>
             </div>
 
             <div class="slider-wrapper">
                 <div class="slider-track" id="sliderTrack">
-                    <!-- Слайд 1: InstaTan Pro -->
+                    <!-- Слайд 1: InstaTan Pro 5 л -->
                     <div class="slide">
                         <div class="slide-content">
-                            <h3><i class="fas fa-spray-can"></i> InstaTan Pro</h3>
-                            <p>Профессиональный состав для соревнований. Доступен в объёмах 4 л и 1 л. Обеспечивает ровный, насыщенный цвет без разводов.</p>
+                            <h3><i class="fas fa-spray-can"></i> InstaTan Pro 5 л</h3>
+                            <div class="sub">Профессиональный автозагар для соревнований</div>
+                            <p>Однофазное нанесение в день соревнования. Даёт ровный, натуральный оттенок, устойчивый к поту и воде. Лёгкий приятный аромат.</p>
                             <ul>
                                 <li><i class="fas fa-check-circle"></i> Стойкость до 72 часов</li>
+                                <li><i class="fas fa-check-circle"></i> Однофазное нанесение</li>
                                 <li><i class="fas fa-check-circle"></i> Не смывается потом и водой</li>
-                                <li><i class="fas fa-check-circle"></i> Для всех типов кожи</li>
-                                <li><i class="fas fa-check-circle"></i> Объёмы: 4 л / 1 л</li>
+                                <li><i class="fas fa-check-circle"></i> Объём: 5 л</li>
                             </ul>
                         </div>
                         <div class="slide-image">
                             <i class="fas fa-spray-can-sparkles"></i>
-                            <span>Профессиональный состав</span>
+                            <span>Pro 5 л</span>
                         </div>
                     </div>
-                    <!-- Слайд 2: Скраб -->
+                    <!-- Слайд 2: InstaTan Pro 1 л -->
                     <div class="slide">
                         <div class="slide-content">
-                            <h3><i class="fas fa-scrub"></i> InstaTan Scrab 500 мл</h3>
-                            <p>Скраб для подготовки кожи перед нанесением автозагара. Удаляет ороговевшие частицы, выравнивает рельеф и продлевает стойкость.</p>
+                            <h3><i class="fas fa-spray-can"></i> InstaTan Pro 1 л</h3>
+                            <div class="sub">Профессиональный автозагар для соревнований</div>
+                            <p>Компактный объём для индивидуального использования. Та же формула, что и в 5 л: однофазное нанесение, стойкость и натуральный цвет.</p>
                             <ul>
+                                <li><i class="fas fa-check-circle"></i> Стойкость до 72 часов</li>
+                                <li><i class="fas fa-check-circle"></i> Однофазное нанесение</li>
+                                <li><i class="fas fa-check-circle"></i> Идеально для одного спортсмена</li>
+                                <li><i class="fas fa-check-circle"></i> Объём: 1 л</li>
+                            </ul>
+                        </div>
+                        <div class="slide-image">
+                            <i class="fas fa-spray-can"></i>
+                            <span>Pro 1 л</span>
+                        </div>
+                    </div>
+                    <!-- Слайд 3: Скраб -->
+                    <div class="slide">
+                        <div class="slide-content">
+                            <h3><i class="fas fa-scrub"></i> InstaTan Scrub 400 мл</h3>
+                            <div class="sub">Скраб для глубокой очистки кожи</div>
+                            <p>Подготавливает кожу перед нанесением автозагара. Удаляет омертвевшие клетки, выравнивает рельеф и продлевает стойкость цвета.</p>
+                            <ul>
+                                <li><i class="fas fa-check-circle"></i> Глубокая очистка</li>
                                 <li><i class="fas fa-check-circle"></i> Мягкие абразивные частицы</li>
                                 <li><i class="fas fa-check-circle"></i> Экстракт алоэ и витамин Е</li>
-                                <li><i class="fas fa-check-circle"></i> Не пересушивает кожу</li>
-                                <li><i class="fas fa-check-circle"></i> Идеален перед соревнованиями</li>
+                                <li><i class="fas fa-check-circle"></i> Объём: 400 мл</li>
                             </ul>
                         </div>
                         <div class="slide-image">
                             <i class="fas fa-hand-sparkles"></i>
-                            <span>Подготовка к загару</span>
+                            <span>Scrub 400 мл</span>
                         </div>
                     </div>
-                    <!-- Слайд 3: Крем с магнием -->
+                    <!-- Слайд 4: Гель до соревнования -->
                     <div class="slide">
                         <div class="slide-content">
-                            <h3><i class="fas fa-hand-holding-heart"></i> InstaTan Cream 300 мл</h3>
-                            <p>Крем для восстановления с магнием. Успокаивает кожу после загара, снимает раздражение, питает и увлажняет.</p>
+                            <h3><i class="fas fa-shower"></i> Pre-Comp Shower</h3>
+                            <div class="sub">Гель для душа перед соревнованием</div>
+                            <p>Профессиональная очистка кожи перед нанесением автозагара. Удаляет загрязнения, не оставляя плёнки, и подготавливает кожу к идеальному нанесению.</p>
                             <ul>
-                                <li><i class="fas fa-check-circle"></i> Магний для расслабления мышц</li>
-                                <li><i class="fas fa-check-circle"></i> Увлажнение до 24 ч</li>
-                                <li><i class="fas fa-check-circle"></i> Без силиконов и парабенов</li>
-                                <li><i class="fas fa-check-circle"></i> Подходит для чувствительной кожи</li>
-                            </ul>
-                        </div>
-                        <div class="slide-image">
-                            <i class="fas fa-hand-holding-heart"></i>
-                            <span>Восстановление + магний</span>
-                        </div>
-                    </div>
-                    <!-- Слайд 4: Гель для душа -->
-                    <div class="slide">
-                        <div class="slide-content">
-                            <h3><i class="fas fa-shower"></i> InstaTan Shower 1000 мл</h3>
-                            <p>Бережный гель для душа, который продлевает стойкость загара. Очищает кожу, не нарушая цвет.</p>
-                            <ul>
-                                <li><i class="fas fa-check-circle"></i> pH-сбалансированный</li>
+                                <li><i class="fas fa-check-circle"></i> Глубокое очищение</li>
                                 <li><i class="fas fa-check-circle"></i> Без сульфатов</li>
-                                <li><i class="fas fa-check-circle"></i> Увлажняющие компоненты</li>
-                                <li><i class="fas fa-check-circle"></i> Экономичный объём 1 л</li>
+                                <li><i class="fas fa-check-circle"></i> Подготовка к загару</li>
+                                <li><i class="fas fa-check-circle"></i> Объём: 1000 мл</li>
                             </ul>
                         </div>
                         <div class="slide-image">
                             <i class="fas fa-shower"></i>
-                            <span>Уход и очищение</span>
+                            <span>Pre-Comp 1000 мл</span>
                         </div>
                     </div>
-                    <!-- Слайд 5: Крем ReVival -->
+                    <!-- Слайд 5: Гель после соревнования -->
                     <div class="slide">
                         <div class="slide-content">
-                            <h3><i class="fas fa-seedling"></i> InstaTan ReVival</h3>
-                            <p>Интенсивный восстанавливающий крем для кожи после загара. Насыщает антиоксидантами, ускоряет регенерацию и дарит ощущение комфорта.</p>
+                            <h3><i class="fas fa-shower"></i> Post-Comp Wash</h3>
+                            <div class="sub">Гель для душа после соревнования</div>
+                            <p>Мягкий состав для смыва остатков автозагара и следов пота. Успокаивает кожу, не нарушая водно-солевой баланс.</p>
                             <ul>
-                                <li><i class="fas fa-check-circle"></i> Комплекс витаминов A, C, E</li>
-                                <li><i class="fas fa-check-circle"></i> Глубокое питание</li>
-                                <li><i class="fas fa-check-circle"></i> Уменьшает шелушение</li>
-                                <li><i class="fas fa-check-circle"></i> Для ежедневного использования</li>
+                                <li><i class="fas fa-check-circle"></i> Бережное смывание</li>
+                                <li><i class="fas fa-check-circle"></i> Успокаивает кожу</li>
+                                <li><i class="fas fa-check-circle"></i> Сохраняет баланс</li>
+                                <li><i class="fas fa-check-circle"></i> Объём: 1000 мл</li>
                             </ul>
                         </div>
                         <div class="slide-image">
-                            <i class="fas fa-seedling"></i>
-                            <span>Полное восстановление</span>
+                            <i class="fas fa-shower"></i>
+                            <span>Post-Comp 1000 мл</span>
+                        </div>
+                    </div>
+                    <!-- Слайд 6: Восстанавливающий крем -->
+                    <div class="slide">
+                        <div class="slide-content">
+                            <h3><i class="fas fa-hand-holding-heart"></i> ReVival Cream</h3>
+                            <div class="sub">Крем для восстановления и питания кожи</div>
+                            <p>Восстанавливает и питает кожу после загара, соблюдая водно-солевой баланс. Снимает раздражение и увлажняет.</p>
+                            <ul>
+                                <li><i class="fas fa-check-circle"></i> Восстанавливает баланс</li>
+                                <li><i class="fas fa-check-circle"></i> Питает и увлажняет</li>
+                                <li><i class="fas fa-check-circle"></i> Успокаивает кожу</li>
+                                <li><i class="fas fa-check-circle"></i> Объём: 300 мл</li>
+                            </ul>
+                        </div>
+                        <div class="slide-image">
+                            <i class="fas fa-hand-holding-heart"></i>
+                            <span>ReVival 300 мл</span>
                         </div>
                     </div>
                 </div>
@@ -1216,44 +1265,44 @@
             <div class="products-grid">
                 <div class="product-item">
                     <div class="p-icon"><i class="fas fa-spray-can-sparkles"></i></div>
-                    <h4>InstaTan Pro 4 л</h4>
+                    <h4>InstaTan Pro 5 л</h4>
                     <p class="p-desc">Профессиональный автозагар для соревнований</p>
-                    <div class="p-price">5 990 ₽</div>
+                    <div class="p-price">6 990 ₽</div>
                     <a href="#order" class="btn btn-primary">Купить</a>
                 </div>
                 <div class="product-item">
                     <div class="p-icon"><i class="fas fa-spray-can"></i></div>
                     <h4>InstaTan Pro 1 л</h4>
                     <p class="p-desc">Профессиональный автозагар для соревнований</p>
-                    <div class="p-price">1 990 ₽</div>
+                    <div class="p-price">2 490 ₽</div>
                     <a href="#order" class="btn btn-primary">Купить</a>
                 </div>
                 <div class="product-item">
                     <div class="p-icon"><i class="fas fa-scrub"></i></div>
-                    <h4>InstaTan Scrab 500 мл</h4>
-                    <p class="p-desc">Скраб для подготовки к соревнованиям</p>
-                    <div class="p-price">1 200 ₽</div>
-                    <a href="#order" class="btn btn-primary">Купить</a>
-                </div>
-                <div class="product-item">
-                    <div class="p-icon"><i class="fas fa-hand-holding-heart"></i></div>
-                    <h4>InstaTan Cream 300 мл</h4>
-                    <p class="p-desc">Крем для восстановления с магнием</p>
-                    <div class="p-price">1 500 ₽</div>
+                    <h4>InstaTan Scrub 400 мл</h4>
+                    <p class="p-desc">Скраб для глубокой очистки кожи</p>
+                    <div class="p-price">1 400 ₽</div>
                     <a href="#order" class="btn btn-primary">Купить</a>
                 </div>
                 <div class="product-item">
                     <div class="p-icon"><i class="fas fa-shower"></i></div>
-                    <h4>InstaTan Shower 1000 мл</h4>
-                    <p class="p-desc">Гель для душа, продлевает стойкость</p>
-                    <div class="p-price">800 ₽</div>
+                    <h4>Pre-Comp Shower 1000 мл</h4>
+                    <p class="p-desc">Гель для душа перед соревнованием</p>
+                    <div class="p-price">1 100 ₽</div>
                     <a href="#order" class="btn btn-primary">Купить</a>
                 </div>
                 <div class="product-item">
-                    <div class="p-icon"><i class="fas fa-seedling"></i></div>
-                    <h4>InstaTan ReVival</h4>
-                    <p class="p-desc">Крем для интенсивного восстановления</p>
-                    <div class="p-price">1 700 ₽</div>
+                    <div class="p-icon"><i class="fas fa-shower"></i></div>
+                    <h4>Post-Comp Wash 1000 мл</h4>
+                    <p class="p-desc">Гель для душа после соревнования</p>
+                    <div class="p-price">1 100 ₽</div>
+                    <a href="#order" class="btn btn-primary">Купить</a>
+                </div>
+                <div class="product-item">
+                    <div class="p-icon"><i class="fas fa-hand-holding-heart"></i></div>
+                    <h4>ReVival Cream 300 мл</h4>
+                    <p class="p-desc">Крем для восстановления и питания</p>
+                    <div class="p-price">1 800 ₽</div>
                     <a href="#order" class="btn btn-primary">Купить</a>
                 </div>
             </div>
@@ -1270,7 +1319,7 @@
             <div class="testimonials-grid">
                 <div class="testimonial-card">
                     <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                    <blockquote>«InstaTan Pro 4 л – идеальный выбор для соревнований. Цвет насыщенный, держится три дня, даже после тренировок. Очень доволен!»</blockquote>
+                    <blockquote>«InstaTan Pro 5 л – идеальный выбор для соревнований. Цвет насыщенный, держится три дня, даже после тренировок. Очень доволен!»</blockquote>
                     <div class="author">
                         <div class="avatar">А</div>
                         <div>
@@ -1281,7 +1330,7 @@
                 </div>
                 <div class="testimonial-card">
                     <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                    <blockquote>«Скраб и крем с магнием – мастхэв! После скраба загар ложится идеально, а крем успокаивает кожу. Результат – супер.»</blockquote>
+                    <blockquote>«Скраб и крем ReVival – мастхэв! После скраба загар ложится идеально, а крем успокаивает кожу. Результат – супер.»</blockquote>
                     <div class="author">
                         <div class="avatar">Е</div>
                         <div>
@@ -1292,7 +1341,7 @@
                 </div>
                 <div class="testimonial-card">
                     <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                    <blockquote>«Брал комплект: Pro 1 л + Shower + ReVival. Загар ровный, стойкий, гель не смывает цвет, а крем восстанавливает после соревнований. Рекомендую!»</blockquote>
+                    <blockquote>«Брал комплект: Pro 1 л + Pre-Comp + Post-Comp. Загар ровный, стойкий, а гели идеально подготавливают и очищают кожу. Рекомендую!»</blockquote>
                     <div class="author">
                         <div class="avatar">Д</div>
                         <div>
@@ -1357,12 +1406,12 @@
                         <div class="form-group">
                             <label for="product">Выберите товар</label>
                             <select id="product">
-                                <option value="InstaTan Pro 4 л — 5 990 ₽">InstaTan Pro 4 л — 5 990 ₽</option>
-                                <option value="InstaTan Pro 1 л — 1 990 ₽">InstaTan Pro 1 л — 1 990 ₽</option>
-                                <option value="InstaTan Scrab 500 мл — 1 200 ₽">InstaTan Scrab 500 мл — 1 200 ₽</option>
-                                <option value="InstaTan Cream 300 мл — 1 500 ₽">InstaTan Cream 300 мл — 1 500 ₽</option>
-                                <option value="InstaTan Shower 1000 мл — 800 ₽">InstaTan Shower 1000 мл — 800 ₽</option>
-                                <option value="InstaTan ReVival — 1 700 ₽">InstaTan ReVival — 1 700 ₽</option>
+                                <option value="InstaTan Pro 5 л — 6 990 ₽">InstaTan Pro 5 л — 6 990 ₽</option>
+                                <option value="InstaTan Pro 1 л — 2 490 ₽">InstaTan Pro 1 л — 2 490 ₽</option>
+                                <option value="InstaTan Scrub 400 мл — 1 400 ₽">InstaTan Scrub 400 мл — 1 400 ₽</option>
+                                <option value="Pre-Comp Shower 1000 мл — 1 100 ₽">Pre-Comp Shower 1000 мл — 1 100 ₽</option>
+                                <option value="Post-Comp Wash 1000 мл — 1 100 ₽">Post-Comp Wash 1000 мл — 1 100 ₽</option>
+                                <option value="ReVival Cream 300 мл — 1 800 ₽">ReVival Cream 300 мл — 1 800 ₽</option>
                             </select>
                         </div>
                         <div class="form-group">
@@ -1407,7 +1456,7 @@
         (function() {
             'use strict';
 
-            // ----- НАВИГАЦИЯ (бургер + скролл) -----
+            // ----- НАВИГАЦИЯ -----
             const hamburger = document.getElementById('hamburger');
             const navLinks = document.getElementById('navLinks');
             const header = document.getElementById('header');
